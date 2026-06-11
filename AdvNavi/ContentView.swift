@@ -1,5 +1,12 @@
 import SwiftUI
 
+/// Root view of the app. Creates the level‑0 root `Router` and three child
+/// routers (one per tab). Each tab wraps its content in a `NavigationContainer`
+/// which owns that tab's child router and sets up the `NavigationStack`.
+///
+/// The root router handles tab‑selection via `Bindable(rootRouter).selectedTab`.
+/// Parent references are wired in `onAppear` so the hierarchy is ready before
+/// any navigation occurs.
 struct ContentView: View {
     @State private var rootRouter = Router(level: 0)
     @State private var homeRouter = Router(level: 1)

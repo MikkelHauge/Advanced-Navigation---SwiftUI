@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// Demo sheet content for a game's plot/story summary.
+/// Presented via `SheetDestination.gamePlotSummary(id:)`.
+/// Includes a "Done" toolbar button to dismiss the sheet.
 struct GamePlotSummaryScreen: View {
     let gameID: GameID
     @Environment(\.dismiss) private var dismiss

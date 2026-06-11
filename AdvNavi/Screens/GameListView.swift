@@ -1,5 +1,7 @@
 import SwiftUI
 
+/// Demo list of games. Reached via `PushDestination.gameList(_:)`.
+/// Each row is a `NavigationButton` that pushes to `GameDetailsScreen`.
 struct GameListView: View {
     let gameListType: GameListType
 

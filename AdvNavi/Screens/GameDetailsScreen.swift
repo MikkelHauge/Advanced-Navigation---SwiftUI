@@ -1,5 +1,9 @@
 import SwiftUI
 
+/// Demo screen for a single game's details.
+/// Reached via `PushDestination.gameDetails(id:)`.
+/// Shows navigation buttons for sheet (plot summary), full‑screen (gallery),
+/// and push (studio details).
 struct GameDetailsScreen: View {
     let gameID: GameID
 

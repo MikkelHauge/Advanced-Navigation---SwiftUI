@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// Demo full‑screen cover for a game's screenshot gallery.
+/// Presented via `FullScreenDestination.gameGallery(id:)`.
+/// Uses a page-style `TabView` for swiping through screenshots.
 struct GameGalleryScreen: View {
     let gameID: GameID
     @Environment(\.dismiss) private var dismiss

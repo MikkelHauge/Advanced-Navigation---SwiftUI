@@ -1,5 +1,7 @@
 import CoreGraphics
 
+/// Defines the two card sizes used in the grid-based game list (see `Readme.md`).
+/// The `width` and `height` properties drive `LazyVGrid` column constraints.
 enum GameCardSize {
     case large
     case small

@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// Card-style view for a game, used inside a grid as shown in the `Readme.md`
+/// `GameListView` example. Wraps `GameCardViewData` with a placeholder image
+/// and text layout.
 struct GameCardView: View {
     let viewData: GameCardViewData
 

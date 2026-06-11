@@ -1,5 +1,12 @@
 import SwiftUI
 
+/// Maps each destination value to the corresponding SwiftUI screen.
+/// Used by `NavigationContainer` in three places:
+///  1. `.navigationDestination(for: PushDestination.self)` — push destinations.
+///  2. `.sheet(item:)` content builder — sheet destinations.
+///  3. `.fullScreenCover(item:)` content builder — full‑screen destinations.
+///
+/// Add a new case here whenever you add a new enum case to any destination type.
 enum DestinationViewFactory {
     @ViewBuilder
     static func view(for destination: PushDestination) -> some View {

@@ -1,5 +1,7 @@
 import SwiftUI
 
+/// Demo wish‑list screen shown in the "Wish List" tab.
+/// Each row is a `NavigationButton` that pushes to `GameDetailsScreen`.
 struct WishListView: View {
     var body: some View {
         List {

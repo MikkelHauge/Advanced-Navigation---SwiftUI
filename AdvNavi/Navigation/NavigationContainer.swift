@@ -1,5 +1,17 @@
 import SwiftUI
 
+/// Owns a `Router` instance and sets up the full SwiftUI navigation stack:
+///   - `NavigationStack(path:)` bound to `router.navigationStackPath`
+///   - `.navigationDestination(for: PushDestination.self)` → `DestinationViewFactory`
+///   - `.sheet(item:)` → new `NavigationContainer` with a child router
+///   - `.fullScreenCover(item:)` → new `NavigationContainer` with a child router
+///   - `.environment(router)` so `NavigationButton` can find it
+///   - `onAppear`/`onDisappear` for active‑router tracking
+///   - `onOpenURL` for deep‑link handling
+///
+/// In a tab‑based app, each tab wraps its content in a `NavigationContainer`
+/// with its own child `Router`. The root `Router` (level 0) lives at the
+/// `TabView` level and handles tab‑selection.
 struct NavigationContainer<Content: View>: View {
     @State var router: Router
     @ViewBuilder var content: () -> Content
@@ -28,6 +40,7 @@ struct NavigationContainer<Content: View>: View {
         router.deepLinkOpen(to: destination)
     }
 
+    /// Creates a new `NavigationContainer` at the next level for sheet presentation.
     private func navigationView(for destination: SheetDestination, from parent: Router) -> AnyView {
         let childRouter = Router(level: parent.level + 1, parent: parent)
         switch destination {
@@ -39,6 +52,7 @@ struct NavigationContainer<Content: View>: View {
         }
     }
 
+    /// Creates a new `NavigationContainer` at the next level for full‑screen presentation.
     private func navigationView(for destination: FullScreenDestination, from parent: Router) -> AnyView {
         let childRouter = Router(level: parent.level + 1, parent: parent)
         switch destination {

@@ -1,5 +1,7 @@
 import SwiftUI
 
+/// Demo screen for a game studio.
+/// Reached via `PushDestination.studioDetails(id:)`.
 struct StudioDetailsScreen: View {
     let studioID: StudioID
 
